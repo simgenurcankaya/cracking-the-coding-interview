@@ -1,5 +1,6 @@
+import unittest
 
-inp = input()
+# inp = input()
 
 # first solution O(N^2)  ~ recursion
 def isUnique(inp):
@@ -33,5 +34,23 @@ def isUnique2(inp):
         
     return True
 
-print (isUnique(inp))
-print (isUnique2(inp))
+# print (isUnique(inp))
+# print (isUnique2(inp))
+
+
+class Test(unittest.TestCase):
+    dataT = [('abcd'), ('s4fad'), (''), ('213weqsda')]
+    dataF = [('23ds2'), ('hb 627jh=j ()'),('aa')]
+
+    def test_unique(self):
+        # true check
+        for test_string in self.dataT:
+            actual = isUnique2(test_string)
+            self.assertTrue(actual)
+        # false check
+        for test_string in self.dataF:
+            actual = isUnique2(test_string)
+            self.assertFalse(actual)
+
+if __name__ == "__main__":
+    unittest.main()
